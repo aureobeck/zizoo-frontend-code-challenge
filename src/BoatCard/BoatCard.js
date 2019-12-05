@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { useMediaQuery } from 'react-responsive';
+
 import NumericInfo from './NumericInfo';
 import ViewsInfo from './ViewsInfo';
 import MainInfo from './MainInfo';
@@ -8,15 +10,20 @@ import FreeExtrasInfo from './FreeExtrasInfo';
 import SailTypeInfo from './SailTypeInfo';
 import PriceInfo from './PriceInfo';
 import Row from './Row';
+import Column from './Column';
+import ViewDetails from './ViewDetails';
 
-export default class BoardCard extends Component {
 
-  render() {
-    const { imageSrc, name, year, city, country, views, length, cabins, guests, reviews, tags, sailType, freeExtras, price, periodType } = this.props;
+export default function BoardCard({ imageSrc, name, year, city, country, views, length, cabins, guests, reviews, tags, sailType, freeExtras, price, periodType }) {
+  const isMobile = useMediaQuery({ query: '(max-width: 750px)' });
 
-    return (
-      <div style={{ width: '500px' }}>
-        <img width={500} height={280} src={imageSrc} alt={'img'} />
+  const RowIfMobile = isMobile ? Row : Column;
+  const ColumnIfMobile = isMobile ? Column : Row;
+
+  return (
+    <ColumnIfMobile>
+      <img width={500} height={280} src={imageSrc} alt={'img'} />
+      <div>
         <Row>
           <MainInfo
             name={name}
@@ -32,23 +39,18 @@ export default class BoardCard extends Component {
           <NumericInfo number={guests} label={'GUESTS'} />
           <ReviewsInfo reviews={reviews} />
         </Row>
-        <Row>
-          <TagsInfo tags={tags}/>
-          <SailTypeInfo sailType={sailType} />
-          <FreeExtrasInfo freeExtras={freeExtras} />
-        </Row>
-        <Row>
-          <PriceInfo price={price} periodType={periodType} />
-          <div style={{ width: '50%', borderColor: '#000', borderWidth: '1px', borderStyle: 'solid', padding: '10px' }}>
-            <div>
-              {'DIRECT BOOKING'}
-            </div>
-            <div>
-              {'VIEW DETAILS'}
-            </div>
-          </div>
-        </Row>
+        <ColumnIfMobile>
+          <RowIfMobile style={{width: isMobile ? '100%' : '60%'}}>
+            <TagsInfo tags={tags} isMobile={isMobile} />
+            <SailTypeInfo sailType={sailType} isMobile={isMobile} />
+            <FreeExtrasInfo freeExtras={freeExtras} isMobile={isMobile} />
+          </RowIfMobile>
+          <RowIfMobile style={{width: isMobile ? '100%' : '40%'}}>
+            <PriceInfo price={price} periodType={periodType} isMobile={isMobile} />
+            <ViewDetails isMobile={isMobile} />
+          </RowIfMobile>
+        </ColumnIfMobile>
       </div>
-    )
-  }
+    </ColumnIfMobile>
+  )
 }

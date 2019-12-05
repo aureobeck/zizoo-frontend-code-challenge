@@ -1,21 +1,26 @@
 import React from 'react';
+import Column from './Column';
+import Row from './Row';
 
-export default function TagsInfo({ tags }) {
+export default function TagsInfo({ tags, isMobile }) {
+    const ColumnIfMobile = isMobile ? Column : Row;
+
     return (
-        <div style={rootStyle}>
+        <ColumnIfMobile style={rootStyle}>
             {tags.map(tag => (
-                <div>
-                {`✔️ ${tag}`}
-            </div>
+                <div style={tagStyle}>
+                    {`✔️ ${tag}`}
+                </div>
             ))}
-        </div>
+        </ColumnIfMobile>
     );
 }
 
-const rootStyle = { 
-    width: '33.3%',
-     borderColor: '#000',
-     borderWidth: '1px',
-     borderStyle: 'solid',
-     padding: '10px'
+const rootStyle = {
+    padding: '10px'
+};
+
+const tagStyle = {
+    padding: '2px',
+    marginRight: '2px',
 };

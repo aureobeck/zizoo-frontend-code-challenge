@@ -1,20 +1,23 @@
 import React from 'react';
+import Column from './Column';
+import Row from './Row';
 
-export default function PriceInfo({ price, periodType }) {
+export default function PriceInfo({ price, periodType, isMobile }) {
+    const ColumnIfMobile = isMobile ? Column : Row;
+    
     return (
-        <div style={rootStyle}>
+        <ColumnIfMobile style={{...rootStyle,  width: isMobile ? '50%' : null}}>
             <div>
                 {'FROM'}
             </div>
             <div>
                 {`$ ${price} ${periodType}`}
             </div>
-        </div>
+        </ColumnIfMobile>
     );
 }
 
 const rootStyle = {
-    width: '50%',
     borderColor: '#000',
     borderWidth: '1px',
     borderStyle: 'solid',

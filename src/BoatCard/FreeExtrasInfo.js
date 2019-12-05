@@ -1,22 +1,26 @@
 import React from 'react';
+import Column from './Column';
+import Row from './Row';
 
-export default function FreeExtrasInfo({ freeExtras }) {
-    return (
-        <div style={rootStyle}>
-        <div>
-          {'FREE EXTRAS'}
-        </div>
-        <div>
-          {freeExtras.join(', ')}
-        </div>
+export default function FreeExtrasInfo({ freeExtras, isMobile }) {
+  const ColumnIfMobile = isMobile ? Column : Row;
+
+  return (
+    <ColumnIfMobile style={rootStyle}>
+      <div style={elementStyle}>
+        {'FREE EXTRAS'}
       </div>
-    );
+      <div style={elementStyle}>
+        {freeExtras.join(', ')}
+      </div>
+    </ColumnIfMobile>
+  );
 }
 
-const rootStyle = { 
-    width: '33.3%',
-     borderColor: '#000',
-     borderWidth: '1px',
-     borderStyle: 'solid',
-     padding: '10px'
+const rootStyle = {
+  padding: '10px'
+};
+
+const elementStyle = {
+  padding: '2px',
 };

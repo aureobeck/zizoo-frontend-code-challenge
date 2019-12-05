@@ -1,22 +1,26 @@
 import React from 'react';
+import Column from './Column';
+import Row from './Row';
 
-export default function SailTypeInfo({ sailType }) {
-    return (
-        <div style={rootStyle}>
-            <div>
-              {'SAIL TYPE'}
-            </div>
-            <div>
-              {sailType}
-            </div>
-          </div>
-    );
+export default function SailTypeInfo({ sailType, isMobile }) {
+  const ColumnIfMobile = isMobile ? Column : Row;
+
+  return (
+    <ColumnIfMobile style={rootStyle}>
+      <div style={elementStyle}>
+        {'SAIL TYPE'}
+      </div>
+      <div style={elementStyle}>
+        {sailType}
+      </div>
+    </ColumnIfMobile>
+  );
 }
 
-const rootStyle = { 
-    width: '33.3%',
-    borderColor: '#000',
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    padding: '10px' 
+const rootStyle = {
+  padding: '10px'
 }
+
+const elementStyle = {
+  padding: '2px',
+};
