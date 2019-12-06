@@ -19,7 +19,8 @@ export default function SailTypeInfo({ sailType, isMobile }) {
 }
 
 const rootStyle = {
-  padding: '2px'
+  padding: '2px',
+  margin: '5px',
 }
 
 const labelStyle = {

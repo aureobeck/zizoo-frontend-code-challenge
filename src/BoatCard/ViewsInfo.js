@@ -23,7 +23,8 @@ const rootStyle = {
     fontFamily: 'Open Sans',
     fontStyle: 'normal',
     fontSize: '12px',
-    color: paleRed
+    color: paleRed,
+    background: white,
 };
 
 const hotStyle = {

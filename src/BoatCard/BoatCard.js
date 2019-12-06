@@ -14,7 +14,6 @@ import Column from './Column';
 import ViewDetails from './ViewDetails';
 import { pinkishGrey } from '../constants/colors';
 
-
 export default function BoardCard({ imageSrc, name, year, city, country, views, length, cabins, guests, reviews, tags, sailType, freeExtras, price, periodType }) {
   const isMobile = useMediaQuery({ query: '(max-width: 850px)' });
 
@@ -26,7 +25,7 @@ export default function BoardCard({ imageSrc, name, year, city, country, views, 
       <div style={imageContainerStyle}>
         <img style={imageStyle} width={360} height={220} src={imageSrc} alt={'img'} />
       </div>
-      <div style={{ height: '100%', width: '100%' }}>
+      <div style={containerStyle}>
         <Row>
           <MainInfo
             name={name}
@@ -43,7 +42,7 @@ export default function BoardCard({ imageSrc, name, year, city, country, views, 
           <ReviewsInfo reviews={reviews} />
         </Row>
         <ColumnIfMobile>
-          <RowIfMobile style={{ padding: 1, border: `1px solid ${pinkishGrey}`, width: isMobile ? null : '60%' }}>
+          <RowIfMobile style={{ ...infoContainer, width: isMobile ? null : '60%' }}>
             <TagsInfo tags={tags} isMobile={isMobile} />
             <SailTypeInfo sailType={sailType} isMobile={isMobile} />
             <FreeExtrasInfo freeExtras={freeExtras} isMobile={isMobile} />
@@ -58,15 +57,25 @@ export default function BoardCard({ imageSrc, name, year, city, country, views, 
   )
 }
 
+const containerStyle = { 
+  height: '100%',
+   width: '100%',
+};
+
 const imageContainerStyle = {
   borderColor: pinkishGrey,
   borderWidth: '1px',
   borderStyle: 'solid',
-  padding: '7px'
+  padding: '7px',
 }
 
 const imageStyle = {
   display: 'block',
   marginLeft: 'auto',
   marginRight: 'auto',
+}
+
+const infoContainer = {
+  padding: 1,
+  border: `1px solid ${pinkishGrey}`,
 }

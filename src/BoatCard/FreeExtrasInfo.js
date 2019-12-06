@@ -19,7 +19,8 @@ export default function FreeExtrasInfo({ freeExtras, isMobile }) {
 }
 
 const rootStyle = {
-  padding: '2px'
+  padding: '2px',
+  margin: '5px',
 };
 
 const labelStyle = {

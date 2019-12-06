@@ -1,5 +1,6 @@
 import React from 'react';
-import { pinkishGrey, charcoalGrey } from '../constants/colors';
+import { pinkishGrey, charcoalGrey, white } from '../constants/colors';
+import Row from './Row';
 
 export default function MainInfo({ name, year, city, country }) {
     return (
@@ -7,14 +8,14 @@ export default function MainInfo({ name, year, city, country }) {
             <div style={nameStyle}>
                 {name}
             </div>
-            <div style={{ display: 'flex' }}>
+            <Row>
                 <div style={infoStyle}>
                     {year}
                 </div>
                 <div style={infoStyle}>
                     {`${city}, ${country}`}
                 </div>
-            </div>
+            </Row>
         </div>
     );
 }
@@ -24,7 +25,8 @@ const rootStyle = {
     borderColor: pinkishGrey,
     borderWidth: '1px',
     borderStyle: 'solid',
-    padding: '10px'
+    padding: '10px',
+    background: white,
 };
 
 const nameStyle = {
@@ -41,5 +43,5 @@ const infoStyle = {
     fontSize: '12px',
     fontWeight: 'bold',
     color: charcoalGrey,
-
+    marginRight: '5px',
 };

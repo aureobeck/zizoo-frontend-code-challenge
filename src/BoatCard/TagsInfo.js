@@ -23,7 +23,7 @@ const rootStyle = {
 
 const tagStyle = {
     padding: '2px',
-    marginRight: '5px',
+    margin: '5px',
     fontFamily: 'Open Sans',
     fontStyle: 'normal',
     fontWeight: 'bold',
