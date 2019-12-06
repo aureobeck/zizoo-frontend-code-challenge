@@ -1,16 +1,22 @@
 import React from 'react';
-import { pinkishGrey, charcoalGrey, paleRed, white } from '../constants/colors';
+import { pinkishGrey, charcoalGrey, white, paleRed } from '../constants/colors';
 
 export default function ViewDetails({ isMobile }) {
     return (
         <div style={{...rootStyle,  width: isMobile ? '50%' : null}}>
-          <div style={labelStyle}>
-            {'⚡️ DIRECT BOOKING'}
-          </div>
-          <div style={buttonStyle}>
-            {'VIEW DETAILS'}
-          </div>
+        <div style={labelStyle}>
+          {'⚡️ DIRECT BOOKING'}
         </div>
+        <div style={buttonStyle}>
+          {'VIEW DETAILS'}
+        </div>
+          <svg style={imageStyle} width={160} height={30}>
+            <polygon
+              points={"0,0 8,15, 0,30, 150,30, 158,15 150,0"}
+              style={{ fill: paleRed }}>
+            </polygon>
+          </svg>
+      </div>
     );
 }
 
@@ -19,7 +25,8 @@ const rootStyle = {
     borderWidth: '1px',
     borderStyle: 'solid',
     padding: '10px',
-    textAlign: 'center'
+    textAlign: 'center',
+    position: 'relative'
 };
 
 const labelStyle = {
@@ -36,7 +43,17 @@ const buttonStyle = {
   fontStyle: 'normal',
   fontWeight: 'bold',
   fontSize: '16px',
-  backgroundColor: paleRed,
   color: white,
-  padding: '5px'
+  padding: '5px',
+  zIndex: 10,  
+  position: 'relative',
 };
+
+const imageStyle = {
+  position: 'absolute',
+  top: 32,
+  left: '50%',
+  transform: 'translate(-50%, 0)',
+  zIndex: -1,
+  display: 'block',
+}
