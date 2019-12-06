@@ -2,20 +2,20 @@ import React from 'react';
 import { pinkishGrey, charcoalGrey, white } from '../constants/colors';
 import Row from './Row';
 
-export default function MainInfo({ name, year, city, country }) {
+export default function MainInfoDesktop({ name, year, city, country }) {
     return (
         <div style={rootStyle}>
-            <div style={nameStyle}>
-                {name}
-            </div>
             <Row>
-                <div style={infoStyle}>
+                <div style={nameStyle}>
+                    {name}
+                </div>
+                <div style={yearStyle}>
                     {year}
                 </div>
-                <div style={infoStyle}>
-                    {`${city}, ${country}`}
-                </div>
             </Row>
+            <div style={infoStyle}>
+                {`${city}, ${country}`}
+            </div>
         </div>
     );
 }
@@ -37,11 +37,19 @@ const nameStyle = {
     color: charcoalGrey,
 };
 
+const yearStyle = {
+    fontFamily: 'Open Sans',
+    fontStyle: 'normal',
+    fontSize: '16px',
+    color: charcoalGrey,
+    marginRight: '10px',
+    marginLeft: '10px',
+};
+
 const infoStyle = {
     fontFamily: 'Open Sans',
     fontStyle: 'normal',
     fontSize: '12px',
-    fontWeight: 'bold',
     color: charcoalGrey,
     marginRight: '5px',
-};
+}

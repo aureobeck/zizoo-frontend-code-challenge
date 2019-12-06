@@ -3,7 +3,6 @@ import { useMediaQuery } from 'react-responsive';
 
 import NumericInfo from './NumericInfo';
 import ViewsInfo from './ViewsInfo';
-import MainInfo from './MainInfo';
 import ReviewsInfo from './ReviewsInfo';
 import TagsInfo from './TagsInfo';
 import FreeExtrasInfo from './FreeExtrasInfo';
@@ -13,12 +12,15 @@ import Row from './Row';
 import Column from './Column';
 import ViewDetails from './ViewDetails';
 import { pinkishGrey } from '../constants/colors';
+import MainInfoMobile from './MainInfoMobile';
+import MainInfoDesktop from './MainInfoDesktop';
 
 export default function BoardCard({ imageSrc, name, year, city, country, views, length, cabins, guests, reviews, tags, sailType, freeExtras, price, periodType }) {
   const isMobile = useMediaQuery({ query: '(max-width: 850px)' });
 
   const RowIfMobile = isMobile ? Row : Column;
   const ColumnIfMobile = isMobile ? Column : Row;
+  const MainInfoComponent = isMobile ? MainInfoMobile : MainInfoDesktop;
 
   return (
     <ColumnIfMobile>
@@ -27,7 +29,7 @@ export default function BoardCard({ imageSrc, name, year, city, country, views, 
       </div>
       <div style={containerStyle}>
         <Row>
-          <MainInfo
+          <MainInfoComponent
             name={name}
             year={year}
             city={city}
