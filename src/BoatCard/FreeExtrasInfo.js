@@ -29,7 +29,7 @@ const labelStyle = {
   fontStyle: 'normal',
   fontSize: '12px',
   color: pinkishGrey,
-  marginRight: 10,
+  marginRight: '10px',
 }
 
 const freeExtrasStyle = {

@@ -88,11 +88,11 @@ function App() {
 }
 
 const rootStyle = {
-  padding: 10
+  padding: '10px',
 }
 
 const boatContainerStyle = {
-  margin: 10
+  margin: '10px',
 }
 
 export default App;

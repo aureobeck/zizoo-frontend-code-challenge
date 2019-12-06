@@ -51,5 +51,4 @@ const periodTypeStyle = {
     fontSize: '12px',
     color: charcoalGrey,
     paddingTop: '5px',
-
   };
