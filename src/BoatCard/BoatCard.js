@@ -24,7 +24,7 @@ export default function BoardCard({ imageSrc, name, year, city, country, views, 
   return (
     <ColumnIfMobile>
       <div style={imageContainerStyle}>
-        <img width={360} height={220} src={imageSrc} alt={'img'} />
+        <img style={imageStyle} width={360} height={220} src={imageSrc} alt={'img'} />
       </div>
       <div style={{ height: '100%', width: '100%' }}>
         <Row>
@@ -43,7 +43,7 @@ export default function BoardCard({ imageSrc, name, year, city, country, views, 
           <ReviewsInfo reviews={reviews} />
         </Row>
         <ColumnIfMobile>
-          <RowIfMobile style={{ padding: 5, border: `1px solid ${pinkishGrey}`, width: isMobile ? null : '60%' }}>
+          <RowIfMobile style={{ padding: 1, border: `1px solid ${pinkishGrey}`, width: isMobile ? null : '60%' }}>
             <TagsInfo tags={tags} isMobile={isMobile} />
             <SailTypeInfo sailType={sailType} isMobile={isMobile} />
             <FreeExtrasInfo freeExtras={freeExtras} isMobile={isMobile} />
@@ -62,5 +62,11 @@ const imageContainerStyle = {
   borderColor: pinkishGrey,
   borderWidth: '1px',
   borderStyle: 'solid',
-  padding: '10px'
+  padding: '7px'
+}
+
+const imageStyle = {
+  display: 'block',
+  marginLeft: 'auto',
+  marginRight: 'auto',
 }

@@ -4,11 +4,13 @@ import { charcoalGrey, pinkishGrey } from '../constants/colors';
 export default function NumericInfo({ number, label, unity }) {
     return (
         <div style={rootStyle}>
-            <div style={numberStyle}>
-                {`${number}${unity || ''}`}
+            <div style={containerStyle}>
+                <div style={numberStyle}>
+                    {`${number}${unity || ''}`}
+                </div>
+                <div style={labelStyle}>
+                    {label}
             </div>
-            <div style={labelStyle}>
-                {label}
             </div>
         </div>
     );
@@ -16,11 +18,15 @@ export default function NumericInfo({ number, label, unity }) {
 
 const rootStyle = {
     width: '20%',
+    padding: '5px',
+    textAlign: 'center',
     borderColor: pinkishGrey,
     borderWidth: '1px',
     borderStyle: 'solid',
-    padding: '5px',
-    textAlign: 'center'
+};
+
+const containerStyle = {
+    marginTop: '3px',
 };
 
 const numberStyle = {
