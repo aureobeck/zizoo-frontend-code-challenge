@@ -1,16 +1,17 @@
 import React from 'react';
 import Column from './Column';
 import Row from './Row';
+import { pinkishGrey, charcoalGrey } from '../constants/colors';
 
 export default function FreeExtrasInfo({ freeExtras, isMobile }) {
   const ColumnIfMobile = isMobile ? Column : Row;
 
   return (
-    <ColumnIfMobile style={rootStyle}>
-      <div style={elementStyle}>
+    <ColumnIfMobile style={{...rootStyle, width: isMobile ? '33%' : null }}>
+      <div style={labelStyle}>
         {'FREE EXTRAS'}
       </div>
-      <div style={elementStyle}>
+      <div style={freeExtrasStyle}>
         {freeExtras.join(', ')}
       </div>
     </ColumnIfMobile>
@@ -18,9 +19,23 @@ export default function FreeExtrasInfo({ freeExtras, isMobile }) {
 }
 
 const rootStyle = {
-  padding: '10px'
+  padding: '2px'
 };
 
-const elementStyle = {
+const labelStyle = {
   padding: '2px',
+  fontFamily: 'Open Sans',
+  fontStyle: 'normal',
+  fontSize: '12px',
+  color: pinkishGrey,
+  marginRight: 10,
+}
+
+const freeExtrasStyle = {
+  padding: '2px',
+  fontFamily: 'Open Sans',
+  fontWeight: 'bold',
+  fontStyle: 'normal',
+  fontSize: '12px',
+  color: charcoalGrey,
 };

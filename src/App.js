@@ -6,7 +6,7 @@ function App() {
   return (
     <BoatCard
       imageSrc={'https://d1pkcile4c5gsr.cloudfront.net/boat/0001/89/thumb_88369_boat_expose_414x242.jpeg'}
-      name={'Jeannau Sun Odyssey'}
+      name={'Jeannau Sun Odyssey 45.2'}
       year={2001}
       city={'Split'}
       country={'Croatia'}

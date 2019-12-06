@@ -1,4 +1,5 @@
 import React from 'react';
+import { pinkishGrey } from '../constants/colors';
 
 export default function ReviewsInfo({ reviews }) {
     return (
@@ -6,7 +7,7 @@ export default function ReviewsInfo({ reviews }) {
             <div>
                 {`⭐️⭐️⭐️⭐️⭐️`}
             </div>
-            <div>
+            <div style={labelStyle}>
                 {`${reviews} REVIEWS`}
             </div>
         </div>
@@ -15,8 +16,16 @@ export default function ReviewsInfo({ reviews }) {
 
 const rootStyle = {
     width: '40%',
-    borderColor: '#000',
+    borderColor: pinkishGrey,
     borderWidth: '1px',
     borderStyle: 'solid',
-    padding: '10px'
+    padding: '10px',
+    textAlign: 'center'
 };
+
+const labelStyle = {
+    fontFamily: 'Open Sans',
+    fontStyle: 'normal',
+    fontSize: '12px',
+    color: pinkishGrey,
+}

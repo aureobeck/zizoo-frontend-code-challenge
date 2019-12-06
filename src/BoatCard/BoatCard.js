@@ -12,6 +12,7 @@ import PriceInfo from './PriceInfo';
 import Row from './Row';
 import Column from './Column';
 import ViewDetails from './ViewDetails';
+import { pinkishGrey } from '../constants/colors';
 
 
 export default function BoardCard({ imageSrc, name, year, city, country, views, length, cabins, guests, reviews, tags, sailType, freeExtras, price, periodType }) {
@@ -22,8 +23,10 @@ export default function BoardCard({ imageSrc, name, year, city, country, views, 
 
   return (
     <ColumnIfMobile>
-      <img width={500} height={280} src={imageSrc} alt={'img'} />
-      <div>
+      <div style={imageContainerStyle}>
+        <img width={360} height={220} src={imageSrc} alt={'img'} />
+      </div>
+      <div style={{ height: '100%', width: '100%' }}>
         <Row>
           <MainInfo
             name={name}
@@ -31,21 +34,21 @@ export default function BoardCard({ imageSrc, name, year, city, country, views, 
             city={city}
             country={country}
           />
-          <ViewsInfo views={views} />
+          <ViewsInfo views={views} isMobile={isMobile}/>
         </Row>
         <Row>
-          <NumericInfo number={length} label={'LENGTH'} />
+          <NumericInfo number={length} label={'LENGTH'} unity={'m'} />
           <NumericInfo number={cabins} label={'CABINS'} />
           <NumericInfo number={guests} label={'GUESTS'} />
           <ReviewsInfo reviews={reviews} />
         </Row>
         <ColumnIfMobile>
-          <RowIfMobile style={{width: isMobile ? '100%' : '60%'}}>
+          <RowIfMobile style={{ padding: 5, border: `1px solid ${pinkishGrey}`, width: isMobile ? null : '60%' }}>
             <TagsInfo tags={tags} isMobile={isMobile} />
             <SailTypeInfo sailType={sailType} isMobile={isMobile} />
             <FreeExtrasInfo freeExtras={freeExtras} isMobile={isMobile} />
           </RowIfMobile>
-          <RowIfMobile style={{width: isMobile ? '100%' : '40%'}}>
+          <RowIfMobile style={{ width: isMobile ? '100%' : '40%' }}>
             <PriceInfo price={price} periodType={periodType} isMobile={isMobile} />
             <ViewDetails isMobile={isMobile} />
           </RowIfMobile>
@@ -53,4 +56,11 @@ export default function BoardCard({ imageSrc, name, year, city, country, views, 
       </div>
     </ColumnIfMobile>
   )
+}
+
+const imageContainerStyle = {
+  borderColor: pinkishGrey,
+  borderWidth: '1px',
+  borderStyle: 'solid',
+  padding: '10px'
 }

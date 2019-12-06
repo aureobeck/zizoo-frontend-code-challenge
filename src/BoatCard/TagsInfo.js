@@ -1,12 +1,13 @@
 import React from 'react';
 import Column from './Column';
 import Row from './Row';
+import { charcoalGrey } from '../constants/colors';
 
 export default function TagsInfo({ tags, isMobile }) {
     const ColumnIfMobile = isMobile ? Column : Row;
 
     return (
-        <ColumnIfMobile style={rootStyle}>
+        <ColumnIfMobile style={{...rootStyle, width: isMobile ? '33%' : null }}>
             {tags.map(tag => (
                 <div style={tagStyle}>
                     {`✔️ ${tag}`}
@@ -17,10 +18,15 @@ export default function TagsInfo({ tags, isMobile }) {
 }
 
 const rootStyle = {
-    padding: '10px'
+    padding: '2px'
 };
 
 const tagStyle = {
     padding: '2px',
-    marginRight: '2px',
+    marginRight: '5px',
+    fontFamily: 'Open Sans',
+    fontStyle: 'normal',
+    fontWeight: 'bold',
+    fontSize: '12px',
+    color: charcoalGrey,
 };
