@@ -16,7 +16,7 @@ import { pinkishGrey } from '../constants/colors';
 
 
 export default function BoardCard({ imageSrc, name, year, city, country, views, length, cabins, guests, reviews, tags, sailType, freeExtras, price, periodType }) {
-  const isMobile = useMediaQuery({ query: '(max-width: 750px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 850px)' });
 
   const RowIfMobile = isMobile ? Row : Column;
   const ColumnIfMobile = isMobile ? Column : Row;
